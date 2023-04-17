@@ -81,7 +81,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(input2);
         
         warning = new JLabel("Por favor ingrese un numero válido...");
-        warning.setBounds(331,70,480,30);
+        warning.setBounds(350,70,480,30);
         warning.setFont(new Font("Verdana", Font.BOLD, 18));
         warning.setForeground(Color.red);
         warning.setVisible(false);
@@ -89,7 +89,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(warning);
         
         warning2 = new JLabel("Por favor ingrese un número válido...");
-        warning2.setBounds(331,70,480,30);
+        warning2.setBounds(350,70,480,30);
         warning2.setFont(new Font("Verdana", Font.BOLD, 18));
         warning2.setForeground(Color.red);
         warning2.setVisible(false);
@@ -112,12 +112,12 @@ public class Interfaz extends JFrame implements ActionListener {
         
         
         primoLabel = new JLabel("M es primo:");
-        primoLabel.setBounds(40,120,150,30);
+        primoLabel.setBounds(40,125,150,30);
         primoLabel.setFont(new Font("Verdana", Font.BOLD, 20));
         add(primoLabel);
         
         resultadoPrimo = new JTextArea();
-        resultadoPrimo.setBounds(40,160,300,50);
+        resultadoPrimo.setBounds(180,120,250,50);
         resultadoPrimo.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
         resultadoPrimo.setEditable(false);
         add(resultadoPrimo);
@@ -125,12 +125,12 @@ public class Interfaz extends JFrame implements ActionListener {
         
         
         suma = new JLabel("Suma de los dígitos |nxm|:");
-        suma.setBounds(400,120,480,30);
+        suma.setBounds(500,125,400,30);
         suma.setFont(new Font("Verdana", Font.BOLD, 20));
         add(suma);
         
         resultSuma = new JTextArea();
-        resultSuma.setBounds(400,160,300,50);
+        resultSuma.setBounds(815,120,100,50);
         resultSuma.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
         resultSuma.setEditable(false);
         add(resultSuma);
@@ -138,7 +138,7 @@ public class Interfaz extends JFrame implements ActionListener {
         
         
         potencia = new JLabel("Potencia n^m:");
-        potencia.setBounds(40,260,480,30);
+        potencia.setBounds(40,210,480,30);
         potencia.setFont(new Font("Verdana", Font.BOLD, 20));
         add(potencia);
         
@@ -147,13 +147,13 @@ public class Interfaz extends JFrame implements ActionListener {
         resultPotencia.setEditable(false);
         add(resultPotencia);
         scrollpane1 = new JScrollPane(resultPotencia);
-        scrollpane1.setBounds(40,300,1032,50);
+        scrollpane1.setBounds(40,250,1032,60);
         add(scrollpane1);
         
         
         
         fibonacci = new JLabel("Secuencia de Fibonacci hasta el término menor o igual a |nxm|: ");
-        fibonacci.setBounds(40,400,750,30);
+        fibonacci.setBounds(40,350,750,30);
         fibonacci.setFont(new Font("Verdana", Font.BOLD, 20));
         add(fibonacci);
         
@@ -162,14 +162,14 @@ public class Interfaz extends JFrame implements ActionListener {
         resultFibonacci.setEditable(false);
         add(resultFibonacci);
         scrollpane2 = new JScrollPane(resultFibonacci);
-        scrollpane2.setBounds(40,440,1032,50);
+        scrollpane2.setBounds(40,390,1032,60);
         add(scrollpane2);
         
         
         
         
         factorial = new JLabel("Factorial n!: ");
-        factorial.setBounds(40,540,480,30);
+        factorial.setBounds(40,490,480,30);
         factorial.setFont(new Font("Verdana", Font.BOLD, 20));
         add(factorial);
         
@@ -178,7 +178,7 @@ public class Interfaz extends JFrame implements ActionListener {
         resultFactorial.setEditable(false);
         add(resultFactorial);
         scrollpane3 = new JScrollPane(resultFactorial);
-        scrollpane3.setBounds(40,580,1032,50);
+        scrollpane3.setBounds(40,530,1032,60);
         add(scrollpane3);
         
         
