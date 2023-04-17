@@ -80,16 +80,16 @@ public class Interfaz extends JFrame implements ActionListener {
         
         add(input2);
         
-        warning = new JLabel("Por favor ingrese un numero válido...");
-        warning.setBounds(350,70,480,30);
+        warning = new JLabel("Por favor ingrese dos números...");
+        warning.setBounds(390,70,500,30);
         warning.setFont(new Font("Verdana", Font.BOLD, 18));
         warning.setForeground(Color.red);
         warning.setVisible(false);
         
         add(warning);
         
-        warning2 = new JLabel("Por favor ingrese un número válido...");
-        warning2.setBounds(350,70,480,30);
+        warning2 = new JLabel("Por favor ingrese números dentro del rango...");
+        warning2.setBounds(330,70,500,30);
         warning2.setFont(new Font("Verdana", Font.BOLD, 18));
         warning2.setForeground(Color.red);
         warning2.setVisible(false);
@@ -190,38 +190,45 @@ public class Interfaz extends JFrame implements ActionListener {
         
         try{
             if(e.getSource() == calcular){
-                if(input.getText().isEmpty()){
-                warning2.setVisible(true);
+//                if(input.getText().isEmpty()){
+                if(!(isNumeric(input.getText()) && isNumeric(input2.getText()))){
+                warning.setVisible(true);
+                warning2.setVisible(false);
                 }else{
-                    String text = input.getText();
-                    int entero = Integer.parseInt(text);
-                    if(entero >0 && entero < 10){
+                    String text1 = input.getText();
+                    int entero1 = Integer.parseInt(text1);
+                    
+                    String text2 = input.getText();
+                    int entero2 = Integer.parseInt(text2);
                     warning.setVisible(false);
+                    
+                    if((entero1 >-100 && entero1 < 100) && (entero2 >-100 && entero2 < 100)){
                     warning2.setVisible(false);
                     limpiar.setEnabled(true);
                     calcular.setEnabled(false);
                     input.setEditable(false);
+                    input2.setEditable(false);
                     
-                    int[][] matriz = Logica.crearMatriz(entero);
-                    int[] vector = Logica.crearVector(entero);
+//                    int[][] matriz = Logica.crearMatriz(entero);
+//                    int[] vector = Logica.crearVector(entero);
                     BigInteger escalar;
                     float real = 0;
                     BigInteger potencia = new BigInteger("1");
                     
-                    matriz = Logica.llenarMatriz(matriz);
-                    resultadoPrimo.setText(Logica.mostrarMatriz(matriz));
-                    vector = Logica.ordenarMatriz(matriz);
-                    resultPotencia.setText(Logica.mostrarVector(vector));
-                    resultFibonacci.setText(String.valueOf(Logica.multiplicarColumna(matriz)));
-                    escalar = Logica.multiplicarColumna(matriz);
-                    resultFactorial.setText(Logica.invertirNumero(escalar));
-                    real = Logica.promedioSumaDiagonalSecundaria(matriz);
-                    resultSuma.setText(Float.toString(real));
-                    potencia = Logica.potenciaMenorMayor(vector);
-//                    resultadoPot.setText(String.valueOf(potencia));
+//                    matriz = Logica.llenarMatriz(matriz);
+//                    resultadoPrimo.setText(Logica.mostrarMatriz(matriz));
+//                    vector = Logica.ordenarMatriz(matriz);
+//                    resultPotencia.setText(Logica.mostrarVector(vector));
+//                    resultFibonacci.setText(String.valueOf(Logica.multiplicarColumna(matriz)));
+//                    escalar = Logica.multiplicarColumna(matriz);
+//                    resultFactorial.setText(Logica.invertirNumero(escalar));
+//                    real = Logica.promedioSumaDiagonalSecundaria(matriz);
+//                    resultSuma.setText(Float.toString(real));
+//                    potencia = Logica.potenciaMenorMayor(vector);
                     
                     }else{
-                        warning.setVisible(true);
+                        warning.setVisible(false);
+                        warning2.setVisible(true);
                     }
                 }
             }
@@ -235,6 +242,8 @@ public class Interfaz extends JFrame implements ActionListener {
             calcular.setEnabled(true);
             input.setEditable(true);
             input.setText(null);
+            input2.setEditable(true);
+            input2.setText(null);
             resultadoPrimo.setText("");
             resultPotencia.setText("");
             resultFibonacci.setText("");
@@ -258,4 +267,16 @@ public class Interfaz extends JFrame implements ActionListener {
             e.consume();
             }
     }
+    
+    public static boolean isNumeric(String strNum) {
+    if (strNum == null) {
+        return false;
+    }
+    try {
+        double d = Double.parseDouble(strNum);
+    } catch (NumberFormatException nfe) {
+        return false;
+    }
+    return true;
+}
 }
