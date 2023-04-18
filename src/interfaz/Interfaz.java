@@ -51,13 +51,13 @@ public class Interfaz extends JFrame implements ActionListener {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Evaluación 2 de Algoritmos y Estructuras I");
         
-        enunciado = new JLabel("Ingrese dos números m y n del -99 al 99 ");
+        enunciado = new JLabel("Ingrese dos números m y n del -99 al 99:");
         enunciado.setBounds(40,30,555,30);
         enunciado.setFont(new Font("Verdana", Font.BOLD, 24));
         add(enunciado);
         
         input = new JTextField();
-        input.setBounds(610,25,40,40);
+        input.setBounds(605,25,55,40);
         input.setFont(new Font("Verdana", Font.BOLD, 24));
         
         input.addKeyListener(new KeyAdapter() {
@@ -69,7 +69,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(input);
         
         input2 = new JTextField();
-        input2.setBounds(670,25,40,40);
+        input2.setBounds(670,25,55,40);
         input2.setFont(new Font("Verdana", Font.BOLD, 24));
         
         input2.addKeyListener(new KeyAdapter() {
@@ -82,7 +82,7 @@ public class Interfaz extends JFrame implements ActionListener {
         
         warning = new JLabel("Por favor ingrese dos números...");
         warning.setBounds(390,70,500,30);
-        warning.setFont(new Font("Verdana", Font.BOLD, 18));
+        warning.setFont(new Font("Verdana", Font.BOLD, 22));
         warning.setForeground(Color.red);
         warning.setVisible(false);
         
@@ -97,7 +97,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(warning2);
         
         calcular = new JButton("Calcular");
-        calcular.setBounds(740,25,150,40);
+        calcular.setBounds(750,25,150,40);
         calcular.setFont(new Font("Verdana", Font.BOLD, 18));
         add(calcular);
         calcular.addActionListener(this);
@@ -118,7 +118,7 @@ public class Interfaz extends JFrame implements ActionListener {
         
         resultadoPrimo = new JTextArea();
         resultadoPrimo.setBounds(180,120,250,50);
-        resultadoPrimo.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
+        resultadoPrimo.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultadoPrimo.setEditable(false);
         add(resultadoPrimo);
         
@@ -131,7 +131,7 @@ public class Interfaz extends JFrame implements ActionListener {
         
         resultSuma = new JTextArea();
         resultSuma.setBounds(815,120,100,50);
-        resultSuma.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
+        resultSuma.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultSuma.setEditable(false);
         add(resultSuma);
         
@@ -143,7 +143,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(potencia);
         
         resultPotencia = new JTextArea();
-        resultPotencia.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
+        resultPotencia.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultPotencia.setEditable(false);
         add(resultPotencia);
         scrollpane1 = new JScrollPane(resultPotencia);
@@ -158,7 +158,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(fibonacci);
         
         resultFibonacci = new JTextArea();
-        resultFibonacci.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
+        resultFibonacci.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultFibonacci.setEditable(false);
         add(resultFibonacci);
         scrollpane2 = new JScrollPane(resultFibonacci);
@@ -174,7 +174,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(factorial);
         
         resultFactorial = new JTextArea();
-        resultFactorial.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 18));
+        resultFactorial.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultFactorial.setEditable(false);
         add(resultFactorial);
         scrollpane3 = new JScrollPane(resultFactorial);
@@ -196,13 +196,16 @@ public class Interfaz extends JFrame implements ActionListener {
                 warning2.setVisible(false);
                 }else{
                     String text1 = input.getText();
-                    int entero1 = Integer.parseInt(text1);
+                    int m = Integer.parseInt(text1);
                     
-                    String text2 = input.getText();
-                    int entero2 = Integer.parseInt(text2);
+                    String text2 = input2.getText();
+                    int n = Integer.parseInt(text2);
                     warning.setVisible(false);
                     
-                    if((entero1 >-100 && entero1 < 100) && (entero2 >-100 && entero2 < 100)){
+//                    System.out.println(n);
+//                    System.out.println(m);
+                    
+                    if((m >-100 && m < 100) && (n >-100 && n < 100)){
                     warning2.setVisible(false);
                     limpiar.setEnabled(true);
                     calcular.setEnabled(false);
@@ -216,14 +219,19 @@ public class Interfaz extends JFrame implements ActionListener {
                     BigInteger potencia = new BigInteger("1");
                     
 //                    matriz = Logica.llenarMatriz(matriz);
-//                    resultadoPrimo.setText(Logica.mostrarMatriz(matriz));
+                    resultadoPrimo.setText(" Verdadero");
 //                    vector = Logica.ordenarMatriz(matriz);
-//                    resultPotencia.setText(Logica.mostrarVector(vector));
+                    resultSuma.setText(" 25");
+                    String res = String.valueOf(Logica.potencia(n,m));
+                    resultPotencia.setText(res);
 //                    resultFibonacci.setText(String.valueOf(Logica.multiplicarColumna(matriz)));
 //                    escalar = Logica.multiplicarColumna(matriz);
-//                    resultFactorial.setText(Logica.invertirNumero(escalar));
+                    if(n<0){
+                        resultFactorial.setText(" No se puede calcular el factorial de n porque es un número negativo");
+                    }else{
+                        resultFactorial.setText(String.valueOf(Logica.factorial(n)));
+                    }
 //                    real = Logica.promedioSumaDiagonalSecundaria(matriz);
-//                    resultSuma.setText(Float.toString(real));
 //                    potencia = Logica.potenciaMenorMayor(vector);
                     
                     }else{
