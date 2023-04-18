@@ -190,7 +190,6 @@ public class Interfaz extends JFrame implements ActionListener {
         
         try{
             if(e.getSource() == calcular){
-//                if(input.getText().isEmpty()){
                 if(!(isNumeric(input.getText()) && isNumeric(input2.getText()))){
                 warning.setVisible(true);
                 warning2.setVisible(false);
@@ -202,9 +201,6 @@ public class Interfaz extends JFrame implements ActionListener {
                     int n = Integer.parseInt(text2);
                     warning.setVisible(false);
                     
-//                    System.out.println(n);
-//                    System.out.println(m);
-                    
                     if((m >-100 && m < 100) && (n >-100 && n < 100)){
                     warning2.setVisible(false);
                     limpiar.setEnabled(true);
@@ -212,27 +208,19 @@ public class Interfaz extends JFrame implements ActionListener {
                     input.setEditable(false);
                     input2.setEditable(false);
                     
-//                    int[][] matriz = Logica.crearMatriz(entero);
-//                    int[] vector = Logica.crearVector(entero);
-                    BigInteger escalar;
-                    float real = 0;
-                    BigInteger potencia = new BigInteger("1");
-                    
-//                    matriz = Logica.llenarMatriz(matriz);
+
                     resultadoPrimo.setText(" Verdadero");
-//                    vector = Logica.ordenarMatriz(matriz);
+
                     resultSuma.setText(" 25");
                     String res = String.valueOf(Logica.potencia(n,m));
                     resultPotencia.setText(res);
-//                    resultFibonacci.setText(String.valueOf(Logica.multiplicarColumna(matriz)));
-//                    escalar = Logica.multiplicarColumna(matriz);
+//                    resultFibonacci.setText();
+
                     if(n<0){
                         resultFactorial.setText(" No se puede calcular el factorial de n porque es un número negativo");
                     }else{
                         resultFactorial.setText(String.valueOf(Logica.factorial(n)));
                     }
-//                    real = Logica.promedioSumaDiagonalSecundaria(matriz);
-//                    potencia = Logica.potenciaMenorMayor(vector);
                     
                     }else{
                         warning.setVisible(false);
@@ -257,7 +245,6 @@ public class Interfaz extends JFrame implements ActionListener {
             resultFibonacci.setText("");
             resultFactorial.setText("");
             resultSuma.setText("");
-//            resultadoPot.setText("");
         }
     }
     
