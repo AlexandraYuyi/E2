@@ -217,7 +217,6 @@ public class Interfaz extends JFrame implements ActionListener {
                     resultSuma.setText(resSumaDigitos);
                     String res = String.valueOf(Logica.potencia(n,m));
                     resultPotencia.setText(res);
-                    int sumaDigitosInt = sumaDigitos.intValue();
                     String resFibonacci = Logica.resultadoFibonacci(Math.abs(n*m));
                     resultFibonacci.setText(resFibonacci);
 
