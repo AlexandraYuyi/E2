@@ -46,10 +46,10 @@ public class Logica {
             if (funcionFibonacci(i) > m) {
                 break;
             }
-            if (i == m - 1) {
+            if (i == m - 2) {
                 resultado += funcionFibonacci(i);
             } else {
-                resultado += funcionFibonacci(i) + "   ";
+                resultado += funcionFibonacci(i) + "    ";
             }
         }
         return resultado;
