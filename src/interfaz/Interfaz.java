@@ -117,7 +117,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(primoLabel);
         
         resultadoPrimo = new JTextArea();
-        resultadoPrimo.setBounds(180,120,250,50);
+        resultadoPrimo.setBounds(180,120,200,50);
         resultadoPrimo.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultadoPrimo.setEditable(false);
         add(resultadoPrimo);
@@ -130,7 +130,7 @@ public class Interfaz extends JFrame implements ActionListener {
         add(suma);
         
         resultSuma = new JTextArea();
-        resultSuma.setBounds(815,120,100,50);
+        resultSuma.setBounds(815,120,60,50);
         resultSuma.setFont(new Font("Verdana", Font.LAYOUT_LEFT_TO_RIGHT, 28));
         resultSuma.setEditable(false);
         add(resultSuma);
@@ -218,7 +218,7 @@ public class Interfaz extends JFrame implements ActionListener {
                     String res = String.valueOf(Logica.potencia(n,m));
                     resultPotencia.setText(res);
                     int sumaDigitosInt = sumaDigitos.intValue();
-                    String resFibonacci = Logica.resultadoFibonacci(sumaDigitosInt);
+                    String resFibonacci = Logica.resultadoFibonacci(Math.abs(n*m));
                     resultFibonacci.setText(resFibonacci);
 
                     if(n<0){

@@ -49,7 +49,7 @@ public class Logica {
             if (i == m - 1) {
                 resultado += funcionFibonacci(i);
             } else {
-                resultado += funcionFibonacci(i) + ", ";
+                resultado += funcionFibonacci(i) + "   ";
             }
         }
         return resultado;
