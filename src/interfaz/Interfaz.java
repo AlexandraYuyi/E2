@@ -209,12 +209,17 @@ public class Interfaz extends JFrame implements ActionListener {
                     input2.setEditable(false);
                     
 
-                    resultadoPrimo.setText(" Verdadero");
+                    resultadoPrimo.setText(Logica.esPrimo(m, 2) ? "Verdadero" : "Falso");
 
-                    resultSuma.setText(" 25");
+                    BigInteger resultadoMult = Logica.multiplicacion(m, n);
+                    BigInteger sumaDigitos = Logica.sumaDigitos(resultadoMult);
+                    String resSumaDigitos = String.valueOf(sumaDigitos);
+                    resultSuma.setText(resSumaDigitos);
                     String res = String.valueOf(Logica.potencia(n,m));
                     resultPotencia.setText(res);
-//                    resultFibonacci.setText();
+                    int sumaDigitosInt = sumaDigitos.intValue();
+                    String resFibonacci = Logica.resultadoFibonacci(sumaDigitosInt);
+                    resultFibonacci.setText(resFibonacci);
 
                     if(n<0){
                         resultFactorial.setText(" No se puede calcular el factorial de n porque es un número negativo");
